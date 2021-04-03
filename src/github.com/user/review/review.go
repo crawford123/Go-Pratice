@@ -118,5 +118,49 @@ func main() {
 		fmt.Println(j)
 		j++
 	}
+	//map
+	//map在别的语言里可能叫哈希表或叫dict
+	//使用make创建一个空的map
+	m := make(map[string]int)
+	m["one"] = 1
+	m["two"] = 2
+	m["three"] = 3
+	//输出 map[three:3 two:2 one:1] (顺序在运行时可能不一样)
+	fmt.Println(m)
+	fmt.Println(len(m))
+	//从map里取值
+	v := m["two"]
+	fmt.Println(v)
+	delete(m, "two")
+	fmt.Println(m)//输出 map[three:3 one:1]
+	m1 := map[string]int{"one": 1, "two": 2, "three": 3}
+	fmt.Println(m1)//输出 map[two:2 three:3 one:1] (顺序在运行时可能不一样)
+
+	for key, val := range  m1{
+		fmt.Printf("%s => %d \n", key, val)
+		/*输出：(顺序在运行时可能不一样)
+		  three => 3
+		  one => 1
+		  two => 2*/
+	}
+
+	//指针
+	var i1 int = 1
+	var pInt *int = &i
+	//i=1	pInt=0xc0000620e8	*pInt=0
+	fmt.Printf("i=%d\tpInt=%p\t*pInt=%d\n", i1, pInt, *pInt)
+
+	*pInt = 2
+	//i=1	pInt=0xc0000620e8	*pInt=2
+	fmt.Printf("i=%d\tpInt=%p\t*pInt=%d\n", i1, pInt, *pInt)
+
+	i = 3
+	//i=3	pInt=0xc0000620e8	*pInt=3
+	fmt.Printf("i=%d\tpInt=%p\t*pInt=%d\n", i, pInt, *pInt)
+
+
+
+
+
 
 }
